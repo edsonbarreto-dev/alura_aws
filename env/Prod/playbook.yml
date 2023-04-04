@@ -1,0 +1,26 @@
+- hosts: terraform-ansible-python
+  tasks: 
+  - name: Instalando o python2, e virtualenv
+    apt:
+      pkg:
+      - python3
+      - virtualenv
+      update_cache: yes
+    become: yes
+  - name: Git Clone
+    ansible.builtin.git:
+      repo: https://github.com/edsonbarreto-dev/alura_aws.git
+      dest: /home/ubuntu/tcc
+      version: master
+  - name: Instalando dependencias com pip (Django e Django Rest)
+    pip:
+      virtualenv: /home/ubuntu/tcc/venv
+      name:
+        - django
+        - djangorestframework
+  - name: Alterando o hosts do settings
+    lineinfile:
+      path: /home/ubuntu/tcc/setup/settings.py
+      regexp: 'ALLOWED_HOSTS'
+      line: 'ALLOWED_HOSTS = ["*"]'
+      backrefs: yes

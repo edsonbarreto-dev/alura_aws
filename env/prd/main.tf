@@ -3,6 +3,7 @@ module "aws-prod" {
     instance_aws = "t2.micro"
     region_aws = "us-west-2"
     key_aws = "IaC-Prod"
+    instance_name = "APP - PRD - Python"
 }
 
 output "IP" {

@@ -1,4 +1,4 @@
-- hosts: terraform-ansible-python
+- hosts: prd
   tasks: 
   - name: Instalando o python2, e virtualenv
     apt:
@@ -15,9 +15,7 @@
   - name: Instalando dependencias com pip (Django e Django Rest)
     pip:
       virtualenv: /home/ubuntu/clients/venv
-      name:
-        - django
-        - djangorestframework
+      requirements: /home/ubuntu/clients/application/requirements.txt
   - name: Alterando o hosts do settings
     lineinfile:
       path: /home/ubuntu/clients/setup/settings.py

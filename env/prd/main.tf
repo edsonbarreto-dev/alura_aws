@@ -9,7 +9,3 @@ module "aws-prod" {
     max_size = 10
     group_name = "Producao"
 }
-
-output "IP" {
-    value = module.aws-prod.ip_public
-}

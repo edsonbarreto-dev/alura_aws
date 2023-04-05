@@ -9,7 +9,3 @@ module "aws-dev" {
     max_size = 1
     group_name = "Desenvolvimento"
 }
-
-output "IP" {
-    value = module.aws-dev.ip_public
-}

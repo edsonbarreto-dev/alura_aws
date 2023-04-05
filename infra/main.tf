@@ -13,8 +13,8 @@ provider "aws" {
     region = var.region_aws
 }
 
-resource "aws_instance" "app_server" {
-    ami = "ami-0fcf52bcf5db7b003"
+resource "aws_launch_template" "machine" {
+    image_id = "ami-0fcf52bcf5db7b003"
     instance_type = "t2.micro"
     key_name = var.key_aws
     tags = {

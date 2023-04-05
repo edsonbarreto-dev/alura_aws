@@ -4,6 +4,7 @@ module "aws-dev" {
     region_aws = "us-west-2"
     key_aws = "IaC-DEV"
     instance_name = "APP - DEV - Python"
+    security_group = "Desenvolvimento"
 }
 
 output "IP" {

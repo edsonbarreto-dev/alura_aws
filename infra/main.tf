@@ -20,6 +20,7 @@ resource "aws_launch_template" "machine" {
     tags = {
         Name = var.instance_name
     }
+    security_group_names = [ var.security_group ]
 }
 
 resource "aws_key_pair" "chaveSSH" {

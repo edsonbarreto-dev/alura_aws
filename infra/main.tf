@@ -18,7 +18,7 @@ resource "aws_instance" "app_server" {
     instance_type = "t2.micro"
     key_name = var.key_aws
     tags = {
-        Name = "Terraform Ansible Phython"
+        Name = "Cadastro de Clientes"
     }
 }
 

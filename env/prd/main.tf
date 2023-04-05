@@ -4,7 +4,10 @@ module "aws-prod" {
     region_aws = "us-west-2"
     key_aws = "IaC-Prod"
     instance_name = "APP - PRD - Python"
-    security_group = "Producao"
+    security_group = "prd"
+    min_size = 1
+    max_size = 10
+    group_name = "Producao"
 }
 
 output "IP" {

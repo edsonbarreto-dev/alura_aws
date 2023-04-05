@@ -28,6 +28,16 @@ resource "aws_key_pair" "chaveSSH" {
     public_key = file("${var.key_aws}.pub")
 }
 
+resource "aws_autoscaling_group" "group" {
+    name = var.security_group_name
+    max_size = var.max_size
+    min_size = var.min_size
+    launch_template {
+        id = aws_launch_template.machine.id
+        version "$Latest"
+    }
+}
+
 output "ip_public" {
     value = aws_instance.app_server.public_ip
 }

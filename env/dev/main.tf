@@ -8,4 +8,5 @@ module "aws-dev" {
     min_size = 0
     max_size = 1
     group_name = "Desenvolvimento"
+    is_production = false
 }
